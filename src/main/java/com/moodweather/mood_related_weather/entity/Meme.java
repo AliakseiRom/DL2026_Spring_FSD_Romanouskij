@@ -23,5 +23,5 @@ public class Meme extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private WeatherType weatherType;
 
-    private Integer rating;
+    private Integer rating = 0;
 }
