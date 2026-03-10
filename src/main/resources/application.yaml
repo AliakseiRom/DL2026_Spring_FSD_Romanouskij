@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: mood-related-weather
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mood_weather
+    username: postgres
+    password: AromanouskiJ2007
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
