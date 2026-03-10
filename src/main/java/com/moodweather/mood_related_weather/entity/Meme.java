@@ -1,10 +1,11 @@
 package com.moodweather.mood_related_weather.entity;
 
 import com.moodweather.mood_related_weather.util.WeatherType;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Table;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "memes")
@@ -13,11 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Meme {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Meme extends BaseEntity {
 
     private String imageUrl;
 
@@ -27,6 +24,4 @@ public class Meme {
     private WeatherType weatherType;
 
     private Integer rating;
-
-    private LocalDateTime createdAt;
 }

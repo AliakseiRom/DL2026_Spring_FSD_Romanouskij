@@ -1,10 +1,11 @@
 package com.moodweather.mood_related_weather.entity;
 
 import com.moodweather.mood_related_weather.util.Role;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Table;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
@@ -13,11 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class User extends BaseEntity {
 
     private String username;
 
@@ -27,6 +24,4 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    private LocalDateTime createdAt;
 }
