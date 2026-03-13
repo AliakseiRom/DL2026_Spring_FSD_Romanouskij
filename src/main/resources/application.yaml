@@ -18,5 +18,9 @@ spring:
     init:
       mode: always
 
+openweather:
+  api:
+    key: be32f368ea9a2bc5fed337439e80163d
+
 server:
   port: 8080
