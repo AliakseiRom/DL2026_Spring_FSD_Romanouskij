@@ -7,6 +7,10 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import lombok.*;
 
+
+//TODO: add creation of admin user to data.sql
+
+
 @Entity
 @Table(name = "users")
 @Getter
