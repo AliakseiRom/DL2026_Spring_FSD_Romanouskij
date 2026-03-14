@@ -58,6 +58,10 @@ public class MemeService {
         return toDto(savedMeme);
     }
 
+    public void deleteMeme(Long memeId) {
+        memeRepository.deleteById(memeId);
+    }
+
     private MemeDto toDto(Meme meme) {
 
         return MemeDto.builder()

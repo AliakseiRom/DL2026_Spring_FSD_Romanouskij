@@ -2,6 +2,7 @@ package com.moodweather.mood_related_weather.controller;
 
 import com.moodweather.mood_related_weather.dto.MemeDto;
 import com.moodweather.mood_related_weather.entity.Meme;
+import com.moodweather.mood_related_weather.repository.MemeRepository;
 import com.moodweather.mood_related_weather.service.MemeService;
 import com.moodweather.mood_related_weather.util.WeatherType;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.List;
 public class MemeController {
 
     private final MemeService memeService;
+    private final MemeRepository memeRepository;
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
@@ -39,5 +41,12 @@ public class MemeController {
     @PostMapping
     public MemeDto addMeme(@RequestBody MemeDto memeDto) {
         return memeService.addMeme(memeDto);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/{id}")
+    public String deleteMeme(@PathVariable Long id) {
+        memeService.deleteMeme(id);
+        return "meme deleted";
     }
 }
