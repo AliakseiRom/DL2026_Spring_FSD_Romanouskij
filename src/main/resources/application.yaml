@@ -22,5 +22,9 @@ openweather:
   api:
     key: be32f368ea9a2bc5fed337439e80163d
 
+jwt:
+  secret: supersecretkeysupersecretkeysupersecretkey
+  expiration: 3600000
+
 server:
   port: 8080

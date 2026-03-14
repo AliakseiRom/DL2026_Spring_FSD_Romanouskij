@@ -46,6 +46,18 @@ public class MemeService {
         return toDto(meme);
     }
 
+    public MemeDto addMeme(MemeDto memeDto) {
+        Meme meme = Meme.builder()
+                .imageUrl(memeDto.getImageUrl())
+                .description(memeDto.getDescription())
+                .weatherType(memeDto.getWeatherType())
+                .rating(memeDto.getRating())
+                .build();
+
+        Meme savedMeme = memeRepository.save(meme);
+        return toDto(savedMeme);
+    }
+
     private MemeDto toDto(Meme meme) {
 
         return MemeDto.builder()
