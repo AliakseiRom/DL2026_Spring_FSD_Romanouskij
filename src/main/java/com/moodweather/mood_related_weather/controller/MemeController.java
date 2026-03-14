@@ -1,7 +1,6 @@
 package com.moodweather.mood_related_weather.controller;
 
 import com.moodweather.mood_related_weather.dto.MemeDto;
-import com.moodweather.mood_related_weather.entity.Meme;
 import com.moodweather.mood_related_weather.repository.MemeRepository;
 import com.moodweather.mood_related_weather.service.MemeService;
 import com.moodweather.mood_related_weather.util.WeatherType;

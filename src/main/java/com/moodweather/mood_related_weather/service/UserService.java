@@ -1,7 +1,6 @@
 package com.moodweather.mood_related_weather.service;
 
 import com.moodweather.mood_related_weather.dto.UserDto;
-import com.moodweather.mood_related_weather.entity.User;
 import com.moodweather.mood_related_weather.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

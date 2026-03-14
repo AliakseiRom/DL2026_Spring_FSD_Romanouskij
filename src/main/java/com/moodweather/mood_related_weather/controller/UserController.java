@@ -1,7 +1,6 @@
 package com.moodweather.mood_related_weather.controller;
 
 import com.moodweather.mood_related_weather.dto.UserDto;
-import com.moodweather.mood_related_weather.entity.User;
 import com.moodweather.mood_related_weather.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
