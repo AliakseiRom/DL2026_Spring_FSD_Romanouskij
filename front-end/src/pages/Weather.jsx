@@ -1,25 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getWeather } from "../services/weatherService";
-import WeatherCard from "../components/WeatherCard";
+import MemeCard from "../components/MemeCard";
 
-export default function Weather() {
-    const [city, setCity] = useState("");
-    const [data, setData] = useState(null);
+function Weather({ username }) {
+    const token = localStorage.getItem("token");
+    const [city, setCity] = useState("Moscow");
+    const [weatherData, setWeatherData] = useState(null);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const res = await getWeather(city);
-        setData(res);
+    const fetchWeather = async () => {
+        try {
+            const data = await getWeather(city);
+            setWeatherData(data);
+        } catch (err) {
+            alert("Ошибка при получении погоды");
+        }
     };
 
+    useEffect(() => {
+        fetchWeather();
+    }, []);
+
     return (
-        <div>
-            <h2>Check Mood Weather</h2>
-            <form onSubmit={handleSubmit}>
-                <input placeholder="City" value={city} onChange={e => setCity(e.target.value)} required />
-                <button type="submit">Get Weather</button>
-            </form>
-            {data && <WeatherCard weather={data} />}
+        <div className="p-8">
+            <h2 className="text-3xl font-bold mb-4">Привет, {username}</h2>
+            <div className="mb-4">
+                <input
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="border p-2 rounded mr-2"
+                    placeholder="Введите город"
+                />
+                <button onClick={fetchWeather} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Показать</button>
+            </div>
+
+            {weatherData && (
+                <div className="flex flex-col items-center">
+                    <h3 className="text-xl font-bold mb-2">{weatherData.city}</h3>
+                    <p className="mb-4">{weatherData.description}, {weatherData.temperature}°C</p>
+                    <MemeCard meme={weatherData.meme} />
+                </div>
+            )}
+            {token && <button onClick={logout}>Logout</button>}
         </div>
     );
 }
+
+const logout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+};
+
+export default Weather;

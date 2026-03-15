@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Weather from "./pages/Weather.jsx";
-import Admin from "./pages/Admin.jsx";
+import AdminPanel from "./pages/AdminPanel.jsx";
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/weather" element={<Weather />} />
-                <Route path="/admin" element={<Admin />} />
+                <Route path="/admin" element={<AdminPanel />} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
