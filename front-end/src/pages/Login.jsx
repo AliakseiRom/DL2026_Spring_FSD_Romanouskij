@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { login } from "../services/authService";
 
 export default function Login() {
@@ -21,10 +21,15 @@ export default function Login() {
         <div>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <input type="username" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required />
-                <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required />
+                <input type="username" placeholder="Username" value={username}
+                       onChange={e => setUsername(e.target.value)} required/>
+                <input type="password" placeholder="Password" value={password}
+                       onChange={e => setPassword(e.target.value)} required/>
                 <button type="submit">Login</button>
             </form>
+            <p>
+                Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
+            </p>
         </div>
     );
 }
