@@ -6,6 +6,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Weather from "./pages/Weather.jsx";
 import Admin from "./pages/Admin.jsx";
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
