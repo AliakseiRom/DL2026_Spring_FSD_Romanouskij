@@ -30,7 +30,7 @@ public class AuthService {
             throw new RuntimeException("Invalid password");
         }
 
-        return jwtService.generateToken(username);
+        return jwtService.generateToken(user);
     }
 
 }
