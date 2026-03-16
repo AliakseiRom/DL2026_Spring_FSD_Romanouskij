@@ -1,6 +1,8 @@
 import api from "./api";
 import axios from "axios";
 
+const API_URL = "http://localhost:8080/api";
+
 export const getWeather = async (city) => {
     const res = await api.get(`/weather/${city}`);
     return res.data;

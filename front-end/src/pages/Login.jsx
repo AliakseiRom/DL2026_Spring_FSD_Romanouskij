@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../services/authService";
+import { jwtDecode } from "jwt-decode";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -11,9 +12,33 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const token = await login(username, password);
+
+            const data = await login(username, password);
+            const token = data.token;
+
+            const decoded = jwtDecode(token);
+
             setAuth({ token, username });
-            navigate("/weather");
+
+            if (decoded.role === "ADMIN") {
+                navigate("/admin");
+            } else {
+                navigate("/weather");
+            }
+            // const response = await login(username, password);
+            // console.log(response);
+            // const token = response.data;
+            // const decoded = jwtDecode(token);
+            //
+            // console.log(decoded);
+            //
+            // //setAuth({ token, username, role: decoded.role });
+            //
+            // if (decoded.role === "ADMIN") {
+            //     navigate("/admin");
+            // } else {
+            //     navigate("/weather");
+            // }
         } catch (err) {
             if (err.response) {
                 console.log("Server responded:", err.response);
