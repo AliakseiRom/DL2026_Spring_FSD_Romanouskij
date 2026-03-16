@@ -5,11 +5,35 @@ import { useNavigate } from "react-router-dom";
 function AdminPanel() {
     const [memes, setMemes] = useState([]);
     const navigate = useNavigate();
+    const [imageUrl, setImageUrl] = useState("");
+    const [description, setDescription] = useState("");
 
     const fetchMemes = async () => {
         const token = localStorage.getItem("token");
         const data = await getAllMemes(token);
         setMemes(data);
+    };
+
+    const handleAddMeme = async (e) => {
+        if (!imageUrl || !description) {
+            alert("Заполни все поля");
+            return;
+        }
+        e.preventDefault();
+
+        const token = localStorage.getItem("token");
+
+        const meme = {
+            imageUrl,
+            description
+        };
+
+        await addMeme(meme, token);
+
+        setImageUrl("");
+        setDescription("");
+
+        fetchMemes();
     };
 
     useEffect(() => {
@@ -19,6 +43,29 @@ function AdminPanel() {
     return (
         <div className="p-8">
             <h2 className="text-3xl font-bold mb-4">Админка</h2>
+            <form onSubmit={handleAddMeme} className="mb-8 bg-white p-4 rounded shadow w-96">
+                <h3 className="text-xl font-semibold mb-3">Добавить мем</h3>
+
+                <input
+                    type="text"
+                    placeholder="Image URL"
+                    className="w-full border p-2 rounded mb-3"
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
+                />
+
+                <input
+                    type="text"
+                    placeholder="Description"
+                    className="w-full border p-2 rounded mb-3"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+
+                <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full">
+                    Добавить
+                </button>
+            </form>
             <button
                 className="bg-blue-500 text-white px-4 py-2 rounded mb-6 hover:bg-blue-600"
                 onClick={() => navigate("/weather")}
