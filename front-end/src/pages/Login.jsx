@@ -54,7 +54,7 @@ function Login() {
     return (
         <div className="flex items-center justify-center h-screen bg-gray-100">
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-md w-96">
-                <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center text-black">Login</h2>
                 <input
                     placeholder="Username"
                     className="w-full border p-2 rounded mb-4"
