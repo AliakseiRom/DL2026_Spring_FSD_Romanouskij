@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { getWeather } from "../services/weatherService";
 import MemeCard from "../components/MemeCard";
 
-function Weather({ username }) {
+function Weather({  }) {
     const token = localStorage.getItem("token");
     const [city, setCity] = useState("Moscow");
     const [weatherData, setWeatherData] = useState(null);
+    const username = localStorage.getItem("username");
 
     const fetchWeather = async () => {
         try {
