@@ -1,172 +1,297 @@
-# Mood-Related Weather
+# Mood Weather App 🌦️😂
 
-Mood-Related Weather --- это веб‑приложение, которое показывает текущую
-погоду в выбранном городе и отображает случайный мем, соответствующий
-типу погоды.
+A full-stack web application that shows the current weather for a selected city and displays a random meme related to that weather.
 
-Проект состоит из backend части на Java Spring Boot и frontend части на
-React.
+The project combines a **Spring Boot backend**, **React frontend**, **PostgreSQL database**, and **Docker** for containerized deployment.
 
 ---
 
-## Технологии
+# 📌 Project Idea
 
-Backend: - Java 19 - Spring Boot - Spring Security - JWT
-Authentication - JPA / Hibernate - PostgreSQL
+The goal of the project is to make weather information more entertaining.
 
-Frontend: - React - Vite - Tailwind CSS
+Instead of showing only temperature and weather description, the application also displays a **random meme that matches the current weather conditions**.
 
-Инфраструктура: - Docker - Docker Compose
+For example:
 
-API: - OpenWeather API
-
----
-
-## Функциональность
-
-Приложение позволяет:
-
-- зарегистрироваться пользователю
-- авторизоваться и получить JWT токен
-- запросить погоду по названию города
-- получить случайный мем, подходящий под текущую погоду
-
-Типы погоды, которые поддерживаются:
-
-- RAIN
-- SNOW
-- HOT
-- COLD
-- WIND
-- CLOUDY
-- CLEAR
-
-Для каждого типа погоды в базе данных хранится набор мемов.
+| Weather | Meme        |
+| ------- | ----------- |
+| Rain    | Rain memes  |
+| Snow    | Snow memes  |
+| Clear   | Sunny memes |
+| Cloudy  | Cloud memes |
 
 ---
 
-## Архитектура проекта
+# 🛠 Tech Stack
 
-Проект разделён на две основные части:
+## Backend
 
-Backend (Spring Boot) Frontend (React)
-
----
-
-## Запуск проекта
-
-### 1. Клонирование репозитория
-
-git clone `<repository_url>`{=html}
-
-cd mood-related-weather
-
----
-
-### 2. Настройка OpenWeather API
-
-Получите API ключ на сайте: https://openweathermap.org/
-
-Добавьте его в application.yaml:
-
-openweather:
-api:
-key: YOUR_API_KEY
-
----
-
-### 3. Запуск через Docker
-
-docker-compose up --build
-
-После запуска:
-
-Backend будет доступен на: http://localhost:8080
-
-Frontend будет доступен на: http://localhost:5173
-
-База данных PostgreSQL: порт 5432
-
----
-
-## API
-
-### Регистрация
-
-POST /api/auth/register
-
-пример запроса:
-
-{ "username": "user", "email": "email@email.com "password": "password" }
-
----
-
-### Логин
-
-POST /api/auth/login
-
-пример запроса:
-
-{ "username": "user", "password": "password" }
-
-ответ:
-
-{ "token": "jwt_token" }
-
----
-
-### Получение погоды
-
-GET /api/weather/{city}
-
-пример ответа:
-
-{ "city": "Moscow", "temperature": 4.15, "description": "scattered
-clouds", "meme": { "id": 18, "imageUrl":
-"https://i.imgflip.com/3pnmg.jpg", "description": "Clouds everywhere",
-"weatherType": "CLOUDY", "rating": 3 } }
-
----
-
-## Инициализация данных
-
-При первом запуске приложения автоматически:
-
-- создаётся администратор
-- в базу данных добавляются мемы
-- каждый мем содержит:
-  - ссылку на изображение
-  - описание
-  - тип погоды
-  - рейтинг
-
-Если таблица уже содержит данные, повторная инициализация не
-выполняется.
-
----
+- Java 19
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- Spring Data JPA
+- PostgreSQL
+- Lombok
+- RestTemplate
+- OpenWeather API
 
 ## Frontend
 
-Frontend написан на React.
+- React
+- Vite
+- Axios
+- TailwindCSS
 
-Основные компоненты:
+## DevOps
 
-Weather --- отображает погоду MemeCard --- отображает мем
-
-MemeCard показывает:
-
-- изображение мема
-- описание
+- Docker
+- Docker Compose
 
 ---
 
-## Безопасность
+# 🏗 Project Architecture
 
-Для защиты API используется:
+```
+frontend (React)
+        |
+        | HTTP REST API
+        |
+backend (Spring Boot)
+        |
+        | JPA
+        |
+PostgreSQL
+        |
+External API
+(OpenWeather API)
+```
 
-JWT (JSON Web Token)
+---
 
-После логина пользователь получает токен, который должен передаваться в
-заголовке:
+# 📂 Project Structure
 
-Authorization: Bearer TOKEN
+```
+project-root
+│
+├── src(backend)
+│   ├── controller
+│   ├── service
+│   ├── repository
+│   ├── entity
+│   ├── dto
+│   ├── config
+│   └── util
+│
+├── front-end
+│   ├── components
+│   ├── pages
+│   ├── services
+│   └── context
+│
+├── docker-compose.yml
+├── Dockerfile.backend
+└── README.md
+```
+
+---
+
+# 🔐 Authentication
+
+Authentication is implemented using **JWT tokens**.
+
+User flow:
+
+1. User registers
+2. User logs in
+3. Backend generates JWT token
+4. Token is stored in frontend
+5. Token is sent in requests to protected endpoints
+
+Protected endpoints require authentication.
+
+---
+
+# 🌤 Weather API Integration
+
+Weather data is fetched from:
+
+**OpenWeather API**
+
+```
+https://api.openweathermap.org
+```
+
+The backend converts weather conditions into internal enum types:
+
+```
+RAIN
+SNOW
+CLEAR
+CLOUDY
+COLD
+HOT
+WIND
+```
+
+Then a **random meme** with the corresponding weather type is selected from the database.
+
+---
+
+# 😂 Meme System
+
+Memes are stored in the database with the following fields:
+
+```
+id
+imageUrl
+description
+weatherType
+rating
+```
+
+Example meme:
+
+```
+description: "When it rains and you forgot umbrella"
+imageUrl: https://i.imgflip.com/30b1gx.jpg
+weatherType: RAIN
+rating: 5
+```
+
+When the weather endpoint is called, the backend:
+
+1. Gets weather from OpenWeather
+2. Maps weather to WeatherType
+3. Selects a random meme
+4. Returns weather + meme
+
+---
+
+# 📡 API Endpoints
+
+## Authentication
+
+### Register
+
+```
+POST /api/auth/register
+```
+
+### Login
+
+```
+POST /api/auth/login
+```
+
+---
+
+## Weather
+
+Get weather and meme.
+
+```
+GET /api/weather/{city}
+```
+
+Example:
+
+```
+GET /api/weather/Moscow
+```
+
+Response:
+
+```json
+{
+  "city": "Moscow",
+  "temperature": 12.3,
+  "description": "scattered clouds",
+  "meme": {
+    "id": 5,
+    "imageUrl": "https://i.imgflip.com/3pnmg.jpg",
+    "description": "Clouds everywhere",
+    "weatherType": "CLOUDY",
+    "rating": 3
+  }
+}
+```
+
+---
+
+## Memes
+
+Get all memes:
+
+```
+GET /api/memes
+```
+
+Add meme:
+
+```
+POST /api/memes
+```
+
+Delete meme:
+
+```
+DELETE /api/memes/{id}
+```
+
+---
+
+# 🗄 Database
+
+Database: **PostgreSQL**
+
+Docker configuration:
+
+```
+POSTGRES_DB=mood_weather
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+```
+
+Memes are automatically initialized on first application startup.
+
+---
+
+# 🐳 Running with Docker
+
+Start the entire project using Docker Compose:
+
+```
+docker-compose up --build
+```
+
+Services:
+
+| Service    | Port |
+| ---------- | ---- |
+| Frontend   | 5173 |
+| Backend    | 8080 |
+| PostgreSQL | 5432 |
+
+---
+
+# 🌍 Application URLs
+
+Frontend:
+
+```
+http://localhost:5173
+```
+
+Backend API:
+
+```
+http://localhost:8080/api
+```
+
+---
+
+# 📜 License
+
+This project is open source and available under the MIT License.
