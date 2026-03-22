@@ -2,9 +2,9 @@ spring:
   application:
     name: mood-related-weather
   datasource:
-    url: jdbc:postgresql://localhost:5432/mood_weather
+    url: jdbc:postgresql://db:5432/mood_weather
     username: postgres
-    password: AromanouskiJ2007
+    password: postgres
 
   jpa:
     hibernate:
