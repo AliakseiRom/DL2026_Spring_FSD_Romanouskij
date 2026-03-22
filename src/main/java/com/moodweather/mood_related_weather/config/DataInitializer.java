@@ -39,141 +39,141 @@ public class DataInitializer implements CommandLineRunner {
         if (memeRepository.count() == 0) {
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("When it rains and you forgot umbrella")
-                    .description("https://i.imgflip.com/30b1gx.jpg")
+                    .imageUrl("https://i.imgflip.com/30b1gx.jpg")
+                    .description("When it rains and you forgot umbrella")
                     .rating(5)
                     .weatherType(WeatherType.RAIN)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Rain outside but still need to go to work")
-                    .description("https://i.imgflip.com/1bij.jpg")
+                    .imageUrl("https://i.imgflip.com/1bij.jpg")
+                    .description("Rain outside but still need to go to work")
                     .rating(4)
                     .weatherType(WeatherType.RAIN)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Rain mood activated")
-                    .description("https://i.imgflip.com/26am.jpg")
+                    .imageUrl("https://i.imgflip.com/26am.jpg")
+                    .description("Rain mood activated")
                     .rating(4)
                     .weatherType(WeatherType.RAIN)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("When it is 35°C outside")
-                    .description("https://i.imgflip.com/3si4.jpg")
+                    .imageUrl("https://i.imgflip.com/3si4.jpg")
+                    .description("When it is 35°C outside")
                     .rating(5)
                     .weatherType(WeatherType.HOT)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Summer heat destroying productivity")
-                    .description("https://i.imgflip.com/2fm6x.jpg")
+                    .imageUrl("https://i.imgflip.com/2fm6x.jpg")
+                    .description("Summer heat destroying productivity")
                     .rating(4)
                     .weatherType(WeatherType.HOT)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("AC is my best friend now")
-                    .description("https://i.imgflip.com/4acd7j.jpg")
+                    .imageUrl("https://i.imgflip.com/4acd7j.jpg")
+                    .description("AC is my best friend now")
                     .rating(4)
                     .weatherType(WeatherType.HOT)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Cold outside, staying inside forever")
-                    .description("https://i.imgflip.com/9ehk.jpg")
+                    .imageUrl("https://i.imgflip.com/9ehk.jpg")
+                    .description("Cold outside, staying inside forever")
                     .rating(5)
                     .weatherType(WeatherType.COLD)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("When winter hits suddenly")
-                    .description("https://i.imgflip.com/1ur9b0.jpg")
+                    .imageUrl("https://i.imgflip.com/1ur9b0.jpg")
+                    .description("When winter hits suddenly")
                     .rating(4)
                     .weatherType(WeatherType.COLD)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Need 5 blankets")
-                    .description("https://i.imgflip.com/3lmzyx.jpg")
+                    .imageUrl("https://i.imgflip.com/3lmzyx.jpg")
+                    .description("Need 5 blankets")
                     .rating(4)
                     .weatherType(WeatherType.COLD)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("First snow excitement")
-                    .description("https://i.imgflip.com/1otk96.jpg")
+                    .imageUrl("https://i.imgflip.com/1otk96.jpg")
+                    .description("First snow excitement")
                     .rating(5)
                     .weatherType(WeatherType.SNOW)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Snowball fight mode")
-                    .description("https://i.imgflip.com/4t0m5.jpg")
+                    .imageUrl("https://i.imgflip.com/4t0m5.jpg")
+                    .description("Snowball fight mode")
                     .rating(4)
                     .weatherType(WeatherType.SNOW)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Walking in snow like a penguin")
-                    .description("https://i.imgflip.com/2wifvo.jpg")
+                    .imageUrl("https://i.imgflip.com/2wifvo.jpg")
+                    .description("Walking in snow like a penguin")
                     .rating(4)
                     .weatherType(WeatherType.SNOW)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Wind destroying your hairstyle")
-                    .description("https://i.imgflip.com/1g8my4.jpg")
+                    .imageUrl("https://i.imgflip.com/1g8my4.jpg")
+                    .description("Wind destroying your hairstyle")
                     .rating(4)
                     .weatherType(WeatherType.WIND)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Trying to walk in strong wind")
-                    .description("https://i.imgflip.com/2gnnjh.jpg")
+                    .imageUrl("https://i.imgflip.com/2gnnjh.jpg")
+                    .description("Trying to walk in strong wind")
                     .rating(4)
                     .weatherType(WeatherType.WIND)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Wind vs umbrella battle")
-                    .description("https://i.imgflip.com/3oevdk.jpg")
+                    .imageUrl("https://i.imgflip.com/3oevdk.jpg")
+                    .description("Wind vs umbrella battle")
                     .rating(4)
                     .weatherType(WeatherType.WIND)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Cloudy mood activated")
-                    .description("https://i.imgflip.com/2kbn1e.jpg")
+                    .imageUrl("https://i.imgflip.com/2kbn1e.jpg")
+                    .description("Cloudy mood activated")
                     .rating(3)
                     .weatherType(WeatherType.CLOUDY)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Perfect weather for coffee")
-                    .description("https://i.imgflip.com/1jwhww.jpg")
+                    .imageUrl("https://i.imgflip.com/1jwhww.jpg")
+                    .description("Perfect weather for coffee")
                     .rating(4)
                     .weatherType(WeatherType.CLOUDY)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Clouds everywhere")
-                    .description("https://i.imgflip.com/3pnmg.jpg")
+                    .imageUrl("https://i.imgflip.com/3pnmg.jpg")
+                    .description("Clouds everywhere")
                     .rating(3)
                     .weatherType(WeatherType.CLOUDY)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Sunny day happiness")
-                    .description("https://i.imgflip.com/1bhk.jpg")
+                    .imageUrl("https://i.imgflip.com/1bhk.jpg")
+                    .description("Sunny day happiness")
                     .rating(5)
                     .weatherType(WeatherType.CLEAR)
                     .build());
 
             memeRepository.save(Meme.builder()
-                    .imageUrl("Sunshine and good vibes")
-                    .description("https://i.imgflip.com/3vzej.jpg")
+                    .imageUrl("https://i.imgflip.com/3vzej.jpg")
+                    .description("Sunshine and good vibes")
                     .rating(5)
                     .weatherType(WeatherType.CLEAR)
                     .build());
